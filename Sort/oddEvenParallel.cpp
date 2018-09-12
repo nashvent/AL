@@ -94,7 +94,7 @@ int main(int argc,char **argv){
     int subV[part];
     if(myRank==0){
         random_vector(V,sizeI);
-        print_vect(V,sizeI);
+        //print_vect(V,sizeI);
     }
     MPI_Scatter(V, part, MPI_INT, subV,
             part, MPI_INT, 0, MPI_COMM_WORLD);
@@ -135,8 +135,8 @@ int main(int argc,char **argv){
             }
 
         }
-        cout<<"RESULT FINAL "<<endl;
-        print_vect(resFinal,sizeI);
+        //cout<<"RESULT FINAL "<<endl;
+        //print_vect(resFinal,sizeI);
     }
     
     MPI_Finalize();
