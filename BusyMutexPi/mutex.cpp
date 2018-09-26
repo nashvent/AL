@@ -5,7 +5,7 @@
 
 using namespace std;
 int thread_count;
-int n=10000;
+int n=1000;
 double sum=0.0;
 void* hello(void* rank){
     long my_rank=(long) rank;
@@ -27,8 +27,7 @@ void* Thread_sum(void* rank){
         factor=-1.0;
     }
 
-    for(i=my_first_i;i<my_last_i;i++,factor=-factor){
-        
+    for(i=my_first_i;i<my_last_i;i++,factor=-factor){  
         sum=sum+factor/(2*i+1);
     }
     
