@@ -98,8 +98,6 @@ void Print(struct list_node_s**head_p){
     cout<<endl;
 }
 
-
-
 /*READWIRTELOCKs*/
 void* FuncEval(void *rootTemp){
     list_node_s *root=(list_node_s *)rootTemp;
@@ -179,6 +177,7 @@ int main(int argc, char* argv[]){
     cout<<"Tiempo RWL "<< (double)(clock() - tStart)/CLOCKS_PER_SEC<<endl;
 
     tStart = clock();
+    /* Mutex */
     for(thread=0;thread<thread_count;thread++){
         pthread_create(&thread_handles[thread],NULL,
         FuncEvalMutex,(list_node_s *)root);
