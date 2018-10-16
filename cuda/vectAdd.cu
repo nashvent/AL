@@ -6,7 +6,7 @@ void vecAddKernel(){
 void vecAdd(float* A, float* B, float* C, int n){
   int size = n*sizeof(float);
   float *d_A, *d_B, *d_C;
-	cudaMalloc((void **) &d_A, size);
+  cudaMalloc((void **) &d_A, size);
   cudaMemcpy(d_A,A,size,cudaMemcpyHostToDevice);
   cudaMalloc((void **) &d_B, size);
   cudaMemcpy(d_B,B,size,cudaMemcpyHostToDevice);
@@ -14,9 +14,9 @@ void vecAdd(float* A, float* B, float* C, int n){
 
   vecAddKernel();
 
-	cudaMemcpy(C,d_C,size,cudaMemcpyDeviceToHost);
+  cudaMemcpy(C,d_C,size,cudaMemcpyDeviceToHost);
 
-	cudaFree(d_A); cudaFree(d_B); cudaFree(d_C);
+  cudaFree(d_A); cudaFree(d_B); cudaFree(d_C);
 }
 
 void datosRandom(float *array,int n){
@@ -39,7 +39,7 @@ int main(){
   h_A = (float*) malloc(n*sizeof(float));
   h_B = (float*) malloc(n*sizeof(float));
   h_C = (float*) malloc(n*sizeof(float));
-   datosRandom(h_A,n);
+  datosRandom(h_A,n);
   datosRandom(h_B,n);
   vecAdd(h_A,h_B,h_C,n);
   printVector(h_C,n);
