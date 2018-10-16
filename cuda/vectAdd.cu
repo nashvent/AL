@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void vecAddKernel(){
+void vecAddKernel(float *A, float *B, float *C, int n){
 }
 
 void vecAdd(float* A, float* B, float* C, int n){
